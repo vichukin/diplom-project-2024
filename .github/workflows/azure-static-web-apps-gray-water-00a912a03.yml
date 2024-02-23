@@ -35,7 +35,7 @@ jobs:
         env:
           NABLE_ORYX_BUILD: true
           SCM_DO_BUILD_DURING_DEPLOYMENT: true
-          CUSTOM_BUILD_COMMAND: "npm run dev"
+          CUSTOM_BUILD_COMMAND: "npm install"
 
 
   close_pull_request_job:
