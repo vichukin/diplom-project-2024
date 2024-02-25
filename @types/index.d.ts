@@ -1,0 +1,3 @@
+type IType = {
+  id: string;
+};
