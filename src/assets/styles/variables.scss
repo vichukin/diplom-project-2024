@@ -1,0 +1,25 @@
+@import "./fonts.scss";
+
+%robotoRegular18 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: clamp(15px, 2.5vw, 18px);
+}
+
+%poppinsBold25 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 2.5vw, 25px);
+}
+
+%poppinsMedium25 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(18px, 2.5vw, 25px);
+}
+
+%poppinsMedium35 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(20px, 2.5vw, 35px);
+}
