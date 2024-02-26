@@ -11,6 +11,7 @@ import { ICONS } from "@/constants";
 
 import Rectangle2 from "@/assets/images/Rectangle2.png";
 import Rectangle4 from "@/assets/images/Rectangle4.png";
+import Rectangle5 from "@/assets/images/Rectangle5.png";
 
 import "./Home.scss";
 import { breakPoints } from "./constants";
@@ -115,6 +116,26 @@ export const Home: React.FC = () => {
             </div>
           </div>
         </section>
+      </div>
+
+      <div className="home__container" style={{ paddingInline: "0px" }}>
+        <section className="home__loyalty-programme-section">
+          <div className="home__loyalty-image-div">
+            <div className="home__loyalty-programme-image">
+              <img src={Rectangle5} alt="Login Photo" className="login__img" />
+            </div>
+          </div>
+          <div className="home__loyalty-programme-content">
+            <div className="home__title">Loyalty programme</div>
+            <p className="home__text">
+              Phasellus ut dignissim quam, nec hendrerit augue. Duis sit amet commodo arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+            <div className="home__actions">
+              <button className="button button--login">Login</button>
+              <button className="button button--signup">Sign up</button>
+            </div>
+          </div>  
+        </section>        
       </div>
     </div>
   );

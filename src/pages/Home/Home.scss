@@ -173,3 +173,113 @@
 .swiper-slide {
   min-width: 220px;
 }
+
+@media (min-width: 432px) {
+  .home__loyalty-programme-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 826px;
+    margin-top: 45px;
+    background-color: rgba(193, 193, 193, 0.71);
+  }
+
+  .home__loyalty-image-div{
+    width: 70%;
+    text-align: -webkit-right;
+    margin-right: 20px;
+  }
+
+  .home__loyalty-programme-image {
+    max-width: 641px; // Ensure the image does not grow beyond this size
+    height: auto; // Keep the image's aspect ratio
+  }
+
+  .home__loyalty-programme-image img{
+    width: 100%;
+  }
+
+  .home__loyalty-programme-content {
+    margin-right: 20px;
+    width: 30%;
+  }
+
+  .home__text {
+    margin-top: 45px;
+    margin-bottom: 40px; // Adjust based on your spacing
+  }
+
+  .home__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; // Adjust based on your spacing
+  }
+
+  .button--login, .button--signup {
+    // Add shared button styles here
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 0px 35px;
+    width: 140px;
+    height: 35px;
+    background: #fff;
+  }
+}
+
+@media (max-width: 431px){
+  .home__loyalty-programme-section {
+    position: relative; // Set the parent to have relative positioning
+    width: 100%;
+    height: 450px;
+    margin-top: 45px;
+    background-color: rgba(193, 193, 193, 0.71);
+  }
+
+  .home__loyalty-image-div{
+    width: 100%;
+  }
+
+  .home__loyalty-programme-image {
+    position: absolute;
+    z-index: 1;
+    height: auto; // Keep the image's aspect ratio
+    top: 15%; // Center vertically
+    left: 10%;
+    max-width: 315px;
+  }
+
+  .home__loyalty-programme-image img{
+    width: 100%;
+  }
+
+  .home__loyalty-programme-content {
+    position: absolute;
+    z-index: 2;
+    margin-right: 20px;
+    max-width: 300px;
+    left: 3%;
+    top: 35%;
+  }
+
+  .home__text {
+    margin-top: 45px;
+    margin-bottom: 40px; // Adjust based on your spacing
+  }
+
+  .home__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; // Adjust based on your spacing
+  }
+
+  .button--login, .button--signup {
+    // Add shared button styles here
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 0px 15px;
+    width: 90px;
+    height: 27px;
+    background: #fff;
+  }
+}
