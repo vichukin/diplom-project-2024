@@ -13,6 +13,7 @@ import Rectangle2 from "@/assets/images/Rectangle2.png";
 import Rectangle4 from "@/assets/images/Rectangle4.png";
 
 import "./Home.scss";
+import { SearchForm } from "./components/SearchForm/SearchForm";
 import { breakPoints } from "./constants";
 
 export const Home: React.FC = () => {
@@ -30,19 +31,13 @@ export const Home: React.FC = () => {
             slidesPerView={1}
             autoplay={{ delay: 5000 }}
           >
-            <SwiperSlide>
-              <img src={Rectangle2} alt="Main Photo" className="main__img" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Rectangle2} alt="Main Photo" className="main__img" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Rectangle2} alt="Main Photo" className="main__img" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Rectangle2} alt="Main Photo" className="main__img" />
-            </SwiperSlide>
+            {Array.from({ length: 4 }, (_, index) => (
+              <SwiperSlide key={index}>
+                <img src={Rectangle2} alt="Main Photo" className="main__img" />
+              </SwiperSlide>
+            ))}
           </Swiper>
+          <SearchForm />
         </section>
       </div>
       <div className="home__container" style={{ paddingRight: "0px" }}>
