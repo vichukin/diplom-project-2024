@@ -23,3 +23,10 @@
   font-weight: 500;
   font-size: clamp(20px, 2.5vw, 35px);
 }
+
+@mixin textAdaptive($webkit-line-clamp) {
+  display: -webkit-box;
+  -webkit-line-clamp: $webkit-line-clamp;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

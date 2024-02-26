@@ -17,7 +17,9 @@ export const Card: React.FC = () => {
             <div className="card__price">$ 110</div>
           </div>
           <div className="card__under-main">
-            <div className="card__geolocation">{ICONS.geolocation()} Geolocation</div>
+            <div className="card__geolocation">
+              {ICONS.geolocation()} <span>Geolocation</span>
+            </div>
             <div className="card__arrow">{ICONS.cardArrow()}</div>
           </div>
         </div>

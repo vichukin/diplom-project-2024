@@ -22,9 +22,11 @@ export const Header: React.FC = () => {
           LOGO
         </Link>
         <nav className="header__nav">
-          <div tabIndex={0} className="header__item header__no-position">
-            <div className="header__text">Categories</div>
-            {ICONS.arrow()}
+          <div tabIndex={0} className="header__item header__no-position" data-dropdown>
+            <div className="header__text" data-dropdown-button>
+              Categories
+            </div>
+            {ICONS.arrow({ "data-dropdown-button": true })}
             <div className="dropdown-menu full-width">
               <ul className="dropdown-menu__categories">
                 <li className="dropdown-menu__item-category">
@@ -47,9 +49,11 @@ export const Header: React.FC = () => {
           <div tabIndex={1} className="header__item">
             <div className="header__text">About us</div>
           </div>
-          <div tabIndex={2} className="header__item">
-            <div className="header__text">EN</div>
-            {ICONS.arrow()}
+          <div tabIndex={2} className="header__item" data-dropdown>
+            <div className="header__text" data-dropdown-button>
+              EN
+            </div>
+            {ICONS.arrow({ "data-dropdown-button": true })}
             <div className="dropdown-menu">
               <ul className="dropdown-menu__list">
                 <li className="dropdown-menu__item">
@@ -71,9 +75,11 @@ export const Header: React.FC = () => {
               </ul>
             </div>
           </div>
-          <div tabIndex={3} className="header__item">
-            <div className="header__text">USD</div>
-            {ICONS.arrow()}
+          <div tabIndex={3} className="header__item" data-dropdown>
+            <div className="header__text" data-dropdown-button>
+              USD
+            </div>
+            {ICONS.arrow({ "data-dropdown-button": true })}
             <div className="dropdown-menu">
               <ul className="dropdown-menu__list">
                 <li className="dropdown-menu__item">
