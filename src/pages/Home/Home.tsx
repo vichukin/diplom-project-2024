@@ -24,7 +24,6 @@ export const Home: React.FC = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor magna, bibendum vel
             luctus vitae, pharetra et sapien.
           </div>
-
           <Swiper
             modules={[Navigation, Autoplay]}
             navigation
@@ -60,30 +59,11 @@ export const Home: React.FC = () => {
               spaceBetween={30}
               breakpoints={breakPoints}
             >
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
+              {Array.from({ length: 8 }, (_, index) => (
+                <SwiperSlide key={index}>
+                  <Card />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </section>
@@ -99,30 +79,11 @@ export const Home: React.FC = () => {
               spaceBetween={30}
               breakpoints={breakPoints}
             >
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card />
-              </SwiperSlide>
+              {Array.from({ length: 8 }, (_, index) => (
+                <SwiperSlide key={index}>
+                  <Card />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </section>
@@ -144,17 +105,13 @@ export const Home: React.FC = () => {
               <div className="home__benefit-photo">
                 <img src={Rectangle4} alt="Benefit photo" />
               </div>
-              <div className="home__benefit-text">
-                Large selection of accommodation around the world
-              </div>
+              <div className="home__benefit-text">Low prices and flexible rental terms</div>
             </div>
             <div className="home__benefit-item">
               <div className="home__benefit-photo">
                 <img src={Rectangle4} alt="Benefit photo" />
               </div>
-              <div className="home__benefit-text">
-                Large selection of accommodation around the world
-              </div>
+              <div className="home__benefit-text">Security and confidentiality of transactions</div>
             </div>
           </div>
         </section>

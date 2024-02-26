@@ -39,34 +39,38 @@
     justify-content: space-between;
   }
 
+  &__text {
+    padding-right: 20px;
+
+    @media (max-width: 1000.98px) {
+      padding-right: 8px;
+    }
+  }
+
   &__item {
     @extend %poppinsMedium25;
+    position: relative;
     display: flex;
     align-items: center;
-    column-gap: 20px;
+
     cursor: pointer;
-    position: relative;
 
     svg {
       transition: transform 0.3s ease;
     }
 
-    &:focus > .dropdown-menu {
+    &.active > .dropdown-menu {
       pointer-events: auto;
       opacity: 1;
       transform: translateY(0);
     }
 
-    &:focus > .header__text {
+    &.active > .header__text {
       @extend %poppinsBold25;
     }
 
-    &:focus > svg {
+    &.active > svg {
       transform: rotate(180deg);
-    }
-
-    @media (max-width: 1000.98px) {
-      column-gap: 8px;
     }
   }
 

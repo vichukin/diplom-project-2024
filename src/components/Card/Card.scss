@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: space-between;
   font-size: clamp(15px, 1.3vw, 18px);
+
   &__img {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -41,6 +42,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: clamp(7px, 1.5vw, 18px);
+    column-gap: 10px;
   }
 
   &__main {
@@ -53,15 +55,18 @@
   }
 
   &__name {
+    @include textAdaptive(1);
   }
 
   &__price {
+    text-wrap: nowrap;
   }
 
   &__under-main {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    column-gap: 10px;
   }
 
   &__geolocation {
@@ -69,6 +74,10 @@
     justify-content: space-between;
     align-items: center;
     column-gap: clamp(6px, 1.5vw, 15px);
+
+    & span {
+      @include textAdaptive(1);
+    }
   }
 
   &__arrow {
@@ -93,6 +102,7 @@
   }
 
   &__text {
+    @include textAdaptive(3);
   }
 
   &__star {
