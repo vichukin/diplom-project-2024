@@ -111,6 +111,22 @@ export const Home: React.FC = () => {
           </div>
         </section>
       </div>
+
+      <div className="home__container" style={{ paddingInline: "0px" }}>
+        <section className="home__loyalty-programme-section">
+          <div className="home__loyalty-empty-div"></div>
+          <div className="home__loyalty-programme-content">
+            <div className="home__title">Loyalty programme</div>
+            <p className="home__text">
+              Phasellus ut dignissim quam, nec hendrerit augue. Duis sit amet commodo arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+            <div className="home__actions">
+              <button className="button button--login">Login</button>
+              <button className="button button--signup">Sign up</button>
+            </div>
+          </div>  
+        </section>        
+      </div>
     </div>
   );
 };
