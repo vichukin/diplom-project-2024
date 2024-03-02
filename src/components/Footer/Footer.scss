@@ -1,6 +1,14 @@
 @import "../../assets/styles/variables.scss";
 
 .footer{
+    &__background-one{
+        background: #bdbdbd;
+    }
+
+    &__background-two{
+        background: #696969;
+    }
+
     &__main{
         box-sizing: border-box;
         margin-top: 45px;
@@ -13,6 +21,10 @@
     &__logo{
         color: #fff;
         @extend %poppinsMedium60;
+
+        &:hover {
+            color: #fff;
+        }
     }
 
     &__categories{
@@ -44,6 +56,7 @@
     &__newsletter-input-group {
         input[type="email"] {
             border: 1px solid #333;
+            @extend %poppinsMedium18_25;
     
           // Placeholder styling, might need vendor prefixes for full compatibility
           &::placeholder {
@@ -62,12 +75,12 @@
     &__accordion-sections, &__newsletter_mobil, &__newsletter-info-mobil{
         display: none;
     }
-}
 
-li{
-    color: #fff;
-    margin-bottom: 15px;
-    @extend %poppinsMedium18;
+    &__categories-li{
+        color: #fff;
+        margin-bottom: 15px;
+        @extend %poppinsMedium18;
+    }
 }
 
 @media (min-width: 1161px) {
