@@ -12,6 +12,30 @@
   font-size: clamp(18px, 2.5vw, 25px);
 }
 
+%poppinsMedium15 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: clamp(15px, 2.5vw, 20px);
+}
+
+%poppinsMedium18 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: clamp(18px, 2.5vw, 20px);
+}
+
+%poppinsMedium18_25 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(18px, 2.5vw, 25px);
+}
+
+%poppinsMedium20 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(20px, 2.5vw, 25px);
+}
+
 %poppinsMedium25 {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -28,6 +52,12 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: clamp(20px, 2.5vw, 35px);
+}
+
+%poppinsMedium60 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: clamp(40px, 2.5vw, 60px);
 }
 
 @mixin textAdaptive($webkit-line-clamp) {
