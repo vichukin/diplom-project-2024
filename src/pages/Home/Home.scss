@@ -120,7 +120,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  margin-bottom: clamp(28px, 5vw, 60px);
+  margin-bottom: clamp(60px, 5vw, 120px);
 
   &__img {
     max-width: 1728px;
@@ -168,10 +168,6 @@
   @media (max-width: 460.98px) {
     display: none;
   }
-}
-
-.swiper-slide {
-  min-width: 220px;
 }
 
 @media (min-width: 553px) {
