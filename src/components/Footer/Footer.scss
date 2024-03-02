@@ -185,7 +185,7 @@
         }
 
         &__logo-div{
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         &__newsletter{
@@ -242,16 +242,14 @@
             display: block;
         }
 
-        &__accordion-item{
-            border-bottom: 1px solid #fff;
-        }
-
         &__accordion-title {
-            padding: 15px 0; // Adjust for your desired spacing
+            padding-bottom: 15px; // Adjust for your desired spacing
+            margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
+            border-bottom: 1px solid #fff;
 
             svg{
                 size: 24px;
