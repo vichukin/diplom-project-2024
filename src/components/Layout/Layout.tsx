@@ -1,4 +1,6 @@
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -15,6 +17,7 @@ export const Layout: React.FC = () => {
         <Header />
         <main>
           <Outlet />
+          <ToastContainer />
         </main>
         <Footer />
       </div>
