@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -14,9 +15,12 @@ import Rectangle4 from "@/assets/images/Rectangle4.png";
 
 import "./Home.scss";
 import { SearchForm } from "./components/SearchForm/SearchForm";
+import { Support } from "./components/Support/Support";
 import { breakPoints } from "./constants";
 
 export const Home: React.FC = () => {
+  const [activeModal, setActiveModal] = useState(false);
+
   return (
     <div className="home">
       <div className="home__container" style={{ paddingInline: "0px" }}>
@@ -44,7 +48,7 @@ export const Home: React.FC = () => {
         <section className="home__section">
           <div className="home__question">
             <div className="home__title">Popular offers</div>
-            {ICONS.question()}
+            {ICONS.question({ onClick: () => setActiveModal(true) })}
           </div>
           <div className="home__card-list">
             <Swiper
@@ -118,15 +122,17 @@ export const Home: React.FC = () => {
           <div className="home__loyalty-programme-content">
             <div className="home__title">Loyalty programme</div>
             <p className="home__text">
-              Phasellus ut dignissim quam, nec hendrerit augue. Duis sit amet commodo arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+              Phasellus ut dignissim quam, nec hendrerit augue. Duis sit amet commodo arcu. Class
+              aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
             </p>
             <div className="home__actions">
               <button className="button button--login">Login</button>
               <button className="button button--signup">Sign up</button>
             </div>
-          </div>  
-        </section>        
+          </div>
+        </section>
       </div>
+      <Support activeModal={activeModal} setActiveModal={setActiveModal} />
     </div>
   );
 };
