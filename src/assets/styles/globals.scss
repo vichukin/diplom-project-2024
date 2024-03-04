@@ -23,6 +23,10 @@ body {
   }
 }
 
+body:has(.modal.active) {
+  overflow-y: hidden !important;
+}
+
 .wrapper {
   min-height: 100vh;
   display: flex;
