@@ -14,6 +14,7 @@ import { DateRange } from "@mui/x-date-pickers-pro";
 import { DateRangeCalendar } from "@mui/x-date-pickers-pro/DateRangeCalendar";
 
 import "./SearchForm.scss";
+import { AssistanceAnimals } from "./components/AssistanceAnimals";
 
 import { Counter } from "../Counter/Counter";
 
@@ -21,6 +22,7 @@ export const SearchForm: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [activeMenuIndex, setActiveMenuIndex] = useState<number | null>(null);
   const [guestsCount, setGuestsCount] = useState<number>(0);
+  const [activeModal, setActiveModal] = useState(false);
   const [date, setDate] = useState<DateRange<Dayjs> | []>([]);
 
   const handleClick = () => {
@@ -198,7 +200,10 @@ export const SearchForm: React.FC = () => {
               <li className="search__dropdown-menu__guests-list-item">
                 <div className="search__dropdown-menu__guests-list-item-text">
                   <div className="search__dropdown-menu__guests-list-item-title">Pets</div>
-                  <div className="search__dropdown-menu__guests-list-item-sub">
+                  <div
+                    className="search__dropdown-menu__guests-list-item-sub underline"
+                    onClick={() => setActiveModal(true)}
+                  >
                     Bringing a service animal?
                   </div>
                 </div>
@@ -207,9 +212,9 @@ export const SearchForm: React.FC = () => {
             </ul>
           </div>
         </div>
-
         <button className="search__icon">{ICONS.search()}</button>
       </div>
+      <AssistanceAnimals activeModal={activeModal} setActiveModal={setActiveModal} />
     </div>
   );
 };

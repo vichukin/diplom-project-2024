@@ -200,6 +200,11 @@
 
         &-sub {
           color: #5b5757;
+
+          &.underline {
+            text-decoration: underline;
+            cursor: pointer;
+          }
         }
       }
     }

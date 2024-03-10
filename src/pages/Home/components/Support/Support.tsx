@@ -8,6 +8,8 @@ import { ICONS } from "@/constants";
 
 import { TextField } from "@mui/material";
 
+import "./Support.scss";
+
 type SupportProp = {
   activeModal: boolean;
   setActiveModal: (value: boolean) => void;
