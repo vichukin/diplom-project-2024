@@ -6,7 +6,7 @@ export interface ModalProps {
   active: boolean;
   children: React.ReactNode;
   maxDivWidth: string;
-  setActive: any;
+  setActive: (value: boolean) => void;
 }
 
 export const Modal: React.FC<ModalProps> = ({

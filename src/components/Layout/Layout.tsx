@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { dropdownMenuClick } from "./helpers/dropdownMenuClick";
 
@@ -11,16 +14,21 @@ import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
 
 export const Layout: React.FC = () => {
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <div onClick={dropdownMenuClick}>
-        <Header />
-        <main>
-          <Outlet />
-          <ToastContainer />
-        </main>
-        <Footer />
-      </div>
-    </LocalizationProvider>
+    <QueryClientProvider client={queryClient}>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <div onClick={dropdownMenuClick}>
+          <Header />
+          <main>
+            <Outlet />
+          </main>
+          <Footer />
+        </div>
+      </LocalizationProvider>
+      <ToastContainer />
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 };

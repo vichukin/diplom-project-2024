@@ -10,8 +10,12 @@ import { Card } from "@/components";
 
 import { ICONS } from "@/constants";
 
+import { authService } from "@/services";
+
 import Rectangle2 from "@/assets/images/Rectangle2.png";
 import Rectangle4 from "@/assets/images/Rectangle4.png";
+
+import { useQuery } from "@tanstack/react-query";
 
 import "./Home.scss";
 import { SearchForm } from "./components/SearchForm/SearchForm";
@@ -20,6 +24,18 @@ import { breakPoints } from "./constants";
 
 export const Home: React.FC = () => {
   const [activeModal, setActiveModal] = useState(false);
+
+  const { data: user } = useQuery({
+    queryKey: ["user"],
+    queryFn: () =>
+      authService.main("login", {
+        password: "123456Aa!",
+        email: "sportak50@gmail.com",
+        rememberMe: true,
+      }),
+  });
+
+  console.log(user);
 
   return (
     <div className="home">
