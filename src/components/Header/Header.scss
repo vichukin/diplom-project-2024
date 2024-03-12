@@ -48,7 +48,7 @@
   }
 
   &__item {
-    @extend %poppinsMedium25;
+    @extend %poppinsMedium18_21;
     position: relative;
     display: flex;
     align-items: center;
@@ -66,7 +66,7 @@
     }
 
     &.active > .header__text {
-      @extend %poppinsBold25;
+      @extend %poppinsBold18_21;
     }
 
     &.active > svg {

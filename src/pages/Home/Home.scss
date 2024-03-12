@@ -23,7 +23,7 @@
 
   &__card-list {
     display: flex;
-    padding-right: clamp(20px, 2.5vw, 30px);
+    // padding-right: clamp(20px, 2.5vw, 30px);
 
     @media (max-width: 1000.98px) {
       padding-right: 0px;

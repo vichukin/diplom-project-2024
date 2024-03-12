@@ -1,12 +1,13 @@
-enum EnumTokens {
-  "ACCESS_TOKEN" = "accessToken",
-  "REFRESH_TOKEN" = "refreshToken",
-}
-
-type IAuthForm = {
+type IAuthLogin = {
   password: string;
   email: string;
   rememberMe: boolean;
+};
+
+type IAuthRegistration = {
+  password: string;
+  email: string;
+  fullName: string;
 };
 
 type IUser = {
@@ -17,5 +18,6 @@ type IUser = {
 
 type IAuthResponse = {
   accessToken: string;
+  refreshToken: string;
   //user: IUser;
 };
