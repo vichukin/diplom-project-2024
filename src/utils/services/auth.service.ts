@@ -1,20 +1,30 @@
-import { removeFromStorage, saveTokenStorage } from "./auth.token.service";
+import { removeFromStorage, saveTokensStorage } from "./auth.token.service";
 
 import { axiosClassic } from "../api/interceptors";
 
 export const authService = {
-  async main(type: "login" | "registration", data: IAuthForm) {
-    const response = await axiosClassic.post<IAuthResponse>(`/authorization/${type}`, data);
+  async login(data: IAuthLogin) {
+    const response = await axiosClassic.post<IAuthResponse>(`/authorization/login`, data);
+    if (response.data.accessToken && response.data.refreshToken) {
+      saveTokensStorage(response.data.accessToken, response.data.refreshToken);
+    }
+    return response;
+  },
 
-    if (response.data.accessToken) saveTokenStorage(response.data.accessToken);
-
+  async registration(data: IAuthRegistration) {
+    const response = await axiosClassic.post<IAuthResponse>(`/authorization/registration`, data);
+    if (response.data.accessToken && response.data.refreshToken) {
+      saveTokensStorage(response.data.accessToken, response.data.refreshToken);
+    }
     return response;
   },
 
   async getNewTokens() {
     const response = await axiosClassic.post<IAuthResponse>("/authorization/access-token");
 
-    if (response.data.accessToken) saveTokenStorage(response.data.accessToken);
+    if (response.data.accessToken && response.data.refreshToken) {
+      saveTokensStorage(response.data.accessToken, response.data.refreshToken);
+    }
 
     return response;
   },

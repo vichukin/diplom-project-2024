@@ -3,6 +3,8 @@ import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { UserContext } from "@/context";
+
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -19,13 +21,15 @@ export const Layout: React.FC = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <div onClick={dropdownMenuClick}>
-          <Header />
-          <main>
-            <Outlet />
-          </main>
-          <Footer />
-        </div>
+        <UserContext>
+          <div onClick={dropdownMenuClick}>
+            <Header />
+            <main>
+              <Outlet />
+            </main>
+            <Footer />
+          </div>
+        </UserContext>
       </LocalizationProvider>
       <ToastContainer />
       <ReactQueryDevtools initialIsOpen={false} />

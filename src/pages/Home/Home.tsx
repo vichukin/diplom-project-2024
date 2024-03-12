@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -10,12 +10,10 @@ import { Card } from "@/components";
 
 import { ICONS } from "@/constants";
 
-import { authService } from "@/services";
+import { userContext } from "@/context";
 
 import Rectangle2 from "@/assets/images/Rectangle2.png";
 import Rectangle4 from "@/assets/images/Rectangle4.png";
-
-import { useQuery } from "@tanstack/react-query";
 
 import "./Home.scss";
 import { SearchForm } from "./components/SearchForm/SearchForm";
@@ -25,15 +23,7 @@ import { breakPoints } from "./constants";
 export const Home: React.FC = () => {
   const [activeModal, setActiveModal] = useState(false);
 
-  const { data: user } = useQuery({
-    queryKey: ["user"],
-    queryFn: () =>
-      authService.main("login", {
-        password: "123456Aa!",
-        email: "sportak50@gmail.com",
-        rememberMe: true,
-      }),
-  });
+  const user = useContext(userContext);
 
   console.log(user);
 
@@ -60,7 +50,7 @@ export const Home: React.FC = () => {
           <SearchForm />
         </section>
       </div>
-      <div className="home__container" style={{ paddingRight: "0px" }}>
+      <div className="home__container">
         <section className="home__section">
           <div className="home__question">
             <div className="home__title">Popular offers</div>

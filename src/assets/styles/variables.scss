@@ -48,10 +48,28 @@
   font-size: clamp(18px, 2.5vw, 25px);
 }
 
+%poppinsMedium18_21 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(18px, 2.5vw, 21px);
+}
+
+%poppinsBold18_21 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 2.5vw, 21px);
+}
+
 %poppinsSemiBold25 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(20px, 2.5vw, 25px);
+}
+
+%poppinsSemiBold18_21 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(18px, 2.5vw, 21px);
 }
 
 %poppinsMedium35 {

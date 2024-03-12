@@ -103,7 +103,7 @@
   }
 
   &__item-name {
-    @extend %poppinsSemiBold25;
+    @extend %poppinsSemiBold18_21;
     text-wrap: nowrap;
     @include textAdaptive(1);
     text-align: start;
@@ -122,10 +122,10 @@
     border-bottom-right-radius: 40px;
     border-top-right-radius: 40px;
     width: clamp(73px, 7.5vw, 115px);
-
+    padding-right: 5px;
     & svg {
-      width: clamp(39px, 4vw, 61px);
-      height: clamp(39px, 4vw, 60px);
+      width: clamp(30px, 4vw, 61px);
+      height: clamp(30px, 4vw, 60px);
     }
   }
 
