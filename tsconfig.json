@@ -21,6 +21,7 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
+      "@/validators": ["./src/utils/validators"],
       "@/components": ["./src/components"],
       "@/helpers": ["./src/utils/helpers"],
       "@/constants": ["./src/utils/constants"],

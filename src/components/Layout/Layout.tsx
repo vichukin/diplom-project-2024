@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -16,6 +16,8 @@ import { Footer } from "../Footer/Footer";
 import { Header } from "../Header/Header";
 
 export const Layout: React.FC = () => {
+  const location = useLocation();
+
   const [queryClient] = useState(() => new QueryClient());
 
   return (
@@ -23,11 +25,11 @@ export const Layout: React.FC = () => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <UserContext>
           <div onClick={dropdownMenuClick}>
-            <Header />
+            {location.pathname !== "/SignIn" && location.pathname !== "/SignUp" && <Header />}
             <main>
               <Outlet />
             </main>
-            <Footer />
+            {location.pathname !== "/SignIn" && location.pathname !== "/SignUp" && <Footer />}
           </div>
         </UserContext>
       </LocalizationProvider>
