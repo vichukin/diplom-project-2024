@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -132,8 +133,12 @@ export const Home: React.FC = () => {
               aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
             </p>
             <div className="home__actions">
-              <button className="button button--login">Login</button>
-              <button className="button button--signup">Sign up</button>
+              <button className="button button--login">
+                <Link to={"/SignIn"}>Login</Link>
+              </button>
+              <button className="button button--signup">
+                <Link to={"/SignUp"}>Sign up</Link>
+              </button>
             </div>
           </div>
         </section>

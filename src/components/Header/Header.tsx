@@ -99,7 +99,7 @@ export const Header: React.FC = () => {
               </ul>
             </div>
           </div>
-          {ICONS.account({ className: "svg-account" })}
+          <Link to={"/SignIn"}>{ICONS.account({ className: "svg-account" })}</Link>
         </nav>
         <button className="icon-menu" type="button" onClick={menuOpen}>
           {menuActive ? ICONS.menuClose() : ICONS.menuOpen({ className: "svg-open" })}

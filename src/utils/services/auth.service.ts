@@ -1,6 +1,6 @@
 import { removeFromStorage, saveTokensStorage } from "./auth.token.service";
 
-import { axiosClassic } from "../api/interceptors";
+import { axiosClassic, axiosWithAuth } from "../api/interceptors";
 
 export const authService = {
   async login(data: IAuthLogin) {
@@ -8,6 +8,12 @@ export const authService = {
     if (response.data.accessToken && response.data.refreshToken) {
       saveTokensStorage(response.data.accessToken, response.data.refreshToken);
     }
+    return response;
+  },
+
+  async gett(data: IAuthLogin) {
+    const response = await axiosWithAuth.get<IAuthResponse>(`/authorization/getadmin`);
+    console.log(response);
     return response;
   },
 
