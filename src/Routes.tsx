@@ -2,7 +2,7 @@ import { BrowserRouter, Routes as ReactRoutes, Route } from "react-router-dom";
 
 import { Layout } from "@/components";
 
-import { Home, Profile } from "@/pages";
+import { Home, Profile, Login } from "@/pages";
 
 export function Routes() {
   return (
@@ -11,6 +11,7 @@ export function Routes() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="Profile" element={<Profile />} />
+          <Route path="Login" element={<Login />}/>
         </Route>
       </ReactRoutes>
     </BrowserRouter>
