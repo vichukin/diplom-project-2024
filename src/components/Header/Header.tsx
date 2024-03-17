@@ -10,9 +10,11 @@ import "./Header.scss";
 
 export const Header: React.FC = () => {
   const [menuActive, setMenuActive] = useState<boolean>(false);
+  const [menuItemActive, setMenuItemActive] = useState<number>(0);
 
   const menuOpen = () => {
     setMenuActive(prev => !prev);
+    setMenuItemActive(0);
   };
 
   return (
@@ -97,7 +99,7 @@ export const Header: React.FC = () => {
               </ul>
             </div>
           </div>
-          {ICONS.account({ className: "svg-account" })}
+          <Link to={"/SignIn"}>{ICONS.account({ className: "svg-account" })}</Link>
         </nav>
         <button className="icon-menu" type="button" onClick={menuOpen}>
           {menuActive ? ICONS.menuClose() : ICONS.menuOpen({ className: "svg-open" })}
@@ -106,12 +108,14 @@ export const Header: React.FC = () => {
           <div className="section">
             <div className="section__title">More</div>
             <div className="section__list">
-              <div className="section__item">{ICONS.categories()}Categories</div>
-              <div className="section__item">
+              <div className="section__item" onClick={() => setMenuItemActive(1)}>
+                {ICONS.categories()}Categories
+              </div>
+              <div className="section__item" onClick={() => setMenuItemActive(2)}>
                 <img src={Rectangle} alt="flag" />
                 English (UK)
               </div>
-              <div className="section__item">
+              <div className="section__item" onClick={() => setMenuItemActive(3)}>
                 <span>USD</span>
                 United States dollar
               </div>
@@ -136,6 +140,117 @@ export const Header: React.FC = () => {
               <div className="section__item">{ICONS.privacy()}Privacy and files cookie</div>
               <div className="section__item">{ICONS.conditions()}Conditions of use</div>
               <div className="section__item">{ICONS.legal()}Legal</div>
+            </div>
+          </div>
+        </div>
+        <div className={menuItemActive === 1 ? "menu-item-open active" : "menu-item-open"}>
+          <div className="menu-item-open__title">Categories</div>
+          <div className="menu-item-open__list">
+            <div className="menu-item-open__list-item">Houses {ICONS.arrowRight()}</div>
+            <div className="menu-item-open__list-item">Flats {ICONS.arrowRight()}</div>
+            <div className="menu-item-open__list-item">Hotels {ICONS.arrowRight()}</div>
+            <div className="menu-item-open__list-item">Hostels {ICONS.arrowRight()}</div>
+          </div>
+        </div>
+        <div className={menuItemActive === 2 ? "menu-item-open active" : "menu-item-open"}>
+          <div className="menu-item-open__title">Select your language</div>
+          <div className="menu-item-open__list">
+            <div className="menu-item-open__list-item">
+              <div className="menu-item-open__list-item-text">
+                <div>
+                  <img src={Rectangle} alt="flag" />
+                  EN
+                </div>
+                <span>English (United Kingdom)</span>
+              </div>
+              {ICONS.tick()}
+            </div>
+            <div className="menu-item-open__list-item">
+              <div className="menu-item-open__list-item-text">
+                <div>
+                  <img src={Rectangle} alt="flag" />
+                  UA
+                </div>
+                <span>Ukrainian</span>
+              </div>
+            </div>
+            <div className="menu-item-open__list-item">
+              <div className="menu-item-open__list-item-text">
+                <div>
+                  <img src={Rectangle} alt="flag" />
+                  ES
+                </div>
+                <span>Spanish</span>
+              </div>
+            </div>
+            <div className="menu-item-open__list-item">
+              <div className="menu-item-open__list-item-text">
+                <div>
+                  <img src={Rectangle} alt="flag" />
+                  ZH
+                </div>
+                <span>Chinese</span>
+              </div>
+            </div>
+            <div className="menu-item-open__list-item">
+              <div className="menu-item-open__list-item-text">
+                <div>
+                  <img src={Rectangle} alt="flag" />
+                  PT
+                </div>
+                <span>Portuguese</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={menuItemActive === 3 ? "menu-item-open active" : "menu-item-open"}>
+          <div className="menu-item-open__title">Select currency</div>
+          <div className="menu-item-open__list">
+            <div className="menu-item-open__list-item">
+              <div className="menu-item-open__list-item-text">
+                <div>
+                  <span>$</span>
+                  USD
+                </div>
+                <span>United States Dollar</span>
+              </div>
+              {ICONS.tick()}
+            </div>
+            <div className="menu-item-open__list-item">
+              <div className="menu-item-open__list-item-text">
+                <div>
+                  <span>₴</span>
+                  UAN
+                </div>
+                <span>Ukrainian Hryvnia</span>
+              </div>
+            </div>
+            <div className="menu-item-open__list-item">
+              <div className="menu-item-open__list-item-text">
+                <div>
+                  <span>€</span>
+                  EUR
+                </div>
+                <span>Euro</span>
+              </div>
+            </div>
+            <div className="menu-item-open__list-item">
+              <div className="menu-item-open__list-item-text">
+                <div>
+                  <span>¥</span>
+                  CNY
+                </div>
+                <span>ChiNese Yuan</span>
+              </div>
+            </div>
+            <div className="menu-item-open__list-item">
+              <div className="menu-item-open__list-item-text">
+                <div>
+                  <span>₱</span>
+                  ARS
+                </div>
+                <span>Argentine Peso</span>
+              </div>
             </div>
           </div>
         </div>

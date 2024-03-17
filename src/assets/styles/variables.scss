@@ -5,6 +5,11 @@
   font-weight: 400;
   font-size: clamp(15px, 2.5vw, 18px);
 }
+%robotoRegular15_20 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: clamp(15px, 2.5vw, 20px);
+}
 
 %robotoBold18 {
   font-family: "Roboto", sans-serif;
@@ -54,10 +59,28 @@
   font-size: clamp(18px, 2.5vw, 25px);
 }
 
+%poppinsMedium18_21 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(18px, 2.5vw, 21px);
+}
+
+%poppinsBold18_21 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(18px, 2.5vw, 21px);
+}
+
 %poppinsSemiBold25 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-size: clamp(20px, 2.5vw, 25px);
+}
+
+%poppinsSemiBold18_21 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(18px, 2.5vw, 21px);
 }
 
 %poppinsMedium35 {
@@ -70,6 +93,30 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: clamp(40px, 2.5vw, 60px);
+}
+
+%poppinsMedium25_50 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(25px, 2.5vw, 50px);
+}
+
+%poppinsMedium18_35 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(18px, 2.5vw, 35px);
+}
+
+%poppinsMedium20 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 20;
+}
+
+%poppinsMedium25 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
 }
 
 @mixin textAdaptive($webkit-line-clamp) {

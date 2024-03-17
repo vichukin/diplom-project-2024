@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -10,6 +11,8 @@ import { Card } from "@/components";
 
 import { ICONS } from "@/constants";
 
+import { userContext } from "@/context";
+
 import Rectangle2 from "@/assets/images/Rectangle2.png";
 import Rectangle4 from "@/assets/images/Rectangle4.png";
 
@@ -20,6 +23,10 @@ import { breakPoints } from "./constants";
 
 export const Home: React.FC = () => {
   const [activeModal, setActiveModal] = useState(false);
+
+  const user = useContext(userContext);
+
+  console.log(user);
 
   return (
     <div className="home">
@@ -44,7 +51,7 @@ export const Home: React.FC = () => {
           <SearchForm />
         </section>
       </div>
-      <div className="home__container" style={{ paddingRight: "0px" }}>
+      <div className="home__container">
         <section className="home__section">
           <div className="home__question">
             <div className="home__title">Popular offers</div>
@@ -126,8 +133,12 @@ export const Home: React.FC = () => {
               aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
             </p>
             <div className="home__actions">
-              <button className="button button--login">Login</button>
-              <button className="button button--signup">Sign up</button>
+              <button className="button button--login">
+                <Link to={"/SignIn"}>Login</Link>
+              </button>
+              <button className="button button--signup">
+                <Link to={"/SignUp"}>Sign up</Link>
+              </button>
             </div>
           </div>
         </section>

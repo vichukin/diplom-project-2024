@@ -9,6 +9,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      "@/validators": "/src/utils/validators/index.ts",
       "@/components": "/src/components/index.ts",
       "@/helpers": "/src/utils/helpers/index.ts",
       "@/constants": "/src/utils/constants/index.ts",
@@ -16,7 +17,6 @@ export default defineConfig({
       "@/hooks": "/src/utils/hooks/index.ts",
       "@/services": "/src/utils/services/index.ts",
       "@/pages": "/src/pages/index.ts",
-      // @ts-ignore
       "@/assets": path.resolve(__dirname, "./src/assets"),
     },
   },

@@ -23,7 +23,7 @@
 
   &__card-list {
     display: flex;
-    padding-right: clamp(20px, 2.5vw, 30px);
+    // padding-right: clamp(20px, 2.5vw, 30px);
 
     @media (max-width: 1000.98px) {
       padding-right: 0px;
@@ -256,37 +256,5 @@
     width: 90px;
     height: 27px;
     background: #fff;
-  }
-}
-
-.modal-support {
-  & svg {
-    cursor: pointer;
-    width: clamp(28px, 5vw, 55px);
-    height: clamp(28px, 5vw, 55px);
-  }
-
-  &__title {
-    @extend %poppinsMedium20;
-    margin-top: clamp(48px, 5vw, 70px);
-    text-align: center;
-  }
-
-  &__subtitle {
-    text-decoration: underline;
-    text-align: center;
-    margin-top: clamp(10px, 5vw, 15px);
-  }
-
-  &__text {
-    margin-top: clamp(20px, 5vw, 30px);
-  }
-
-  &__inputs {
-    margin-top: clamp(30px, 5vw, 40px);
-    margin-bottom: clamp(20px, 5vw, 30px);
-    display: flex;
-    flex-direction: column;
-    row-gap: 15px;
   }
 }
