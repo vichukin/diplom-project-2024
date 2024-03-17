@@ -6,6 +6,7 @@
     }
 
     &__background-two{
+        position: relative;
         background: #696969;
     }
 
@@ -81,12 +82,32 @@
         margin-bottom: 15px;
         @extend %poppinsMedium18;
     }
+
+    &__button-return{
+        position: absolute;
+        top: 20px;
+        right: 40px;
+
+        .round-arrow-button{
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50px; 
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .round-arrow-button svg {
+            width: 38px; 
+            height: 38px; 
+        }
+    }
 }
 
 @media (min-width: 1161px) {
     .footer{
         &__main{
-            height: 790px;
+            max-height: 790px;
         }
 
         &__newsletter{

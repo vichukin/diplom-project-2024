@@ -49,7 +49,7 @@ export const Header: React.FC = () => {
             </div>
           </div>
           <div tabIndex={1} className="header__item">
-            <div className="header__text">About us</div>
+            <Link to="/About" className="header__text">About us</Link>
           </div>
           <div tabIndex={2} className="header__item" data-dropdown>
             <div className="header__text" data-dropdown-button>

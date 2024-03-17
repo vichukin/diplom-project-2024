@@ -11,6 +11,12 @@
   font-size: clamp(15px, 2.5vw, 20px);
 }
 
+%robotoBold18 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: clamp(15px, 2.5vw, 18px);
+}
+
 %poppinsBold25 {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
