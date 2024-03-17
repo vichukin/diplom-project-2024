@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Footer.scss";
 import { Link } from "react-router-dom";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { MdArrowUpward } from 'react-icons/md';
 
 export const Footer: React.FC = () => {
   // State to manage which accordion item is open, -1 means all are closed
@@ -16,6 +17,13 @@ export const Footer: React.FC = () => {
       // Open the clicked item
       setOpenAccordion(index);
     }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   };
 
   return(
@@ -35,6 +43,11 @@ export const Footer: React.FC = () => {
       <div className="footer__background-two">
         <div className="home__container" style={{ paddingInline: "0px" }}>
           <div className="footer__content">
+            <div className="footer__button-return">
+              <button className="round-arrow-button" onClick={scrollToTop}>
+                <MdArrowUpward />
+              </button>
+            </div>
             <div className="footer__content-part-one">
               <div className="footer__content-section-one">
                 <div className="footer__logo-div">
