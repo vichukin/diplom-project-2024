@@ -71,3 +71,11 @@ export const cardsData = [
       imageUrl: Rectangle4
     }
 ];
+
+export const menuItems = [
+  { name: 'About the company', id: 'about-the-company-mob' },
+  { name: 'Our team', id: 'our-team' },
+  { name: 'Achievements and awards', id: 'achievements-and-awards' },
+  { name: 'Charity and social projects', id: 'charity-and-social-projects' },
+  { name: 'How can you help?', id: 'how-can-you-help' },
+];
