@@ -45,6 +45,10 @@
     @media (max-width: 1000.98px) {
       padding-right: 8px;
     }
+
+    &:has(> svg) {
+      padding-right: 0px;
+    }
   }
 
   &__item {
@@ -274,4 +278,23 @@
 
 .menu-item-open.active {
   left: 0;
+}
+
+.left-auto-right-0 {
+  left: auto;
+  right: 0;
+  border-radius: 5px;
+  & > ul {
+    & > .dropdown-menu__item {
+      padding: 10px 12px;
+      justify-content: flex-start;
+
+      &:hover {
+        &:first-child,
+        &:last-child {
+          border-radius: 5px;
+        }
+      }
+    }
+  }
 }

@@ -1,5 +1,3 @@
-const { eslint } = require("@siberiacancode/eslint");
-
 module.exports = {
   ...eslint.react,
   overrides: [

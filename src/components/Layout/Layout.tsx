@@ -5,6 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { UserContext } from "@/context";
 
+import { LINKS } from "@/config/pages-url.config";
+
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -18,18 +20,27 @@ import { Header } from "../Header/Header";
 export const Layout: React.FC = () => {
   const location = useLocation();
 
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            refetchOnWindowFocus: false,
+          },
+        },
+      }),
+  );
 
   return (
     <QueryClientProvider client={queryClient}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <UserContext>
           <div onClick={dropdownMenuClick}>
-            {location.pathname !== "/SignIn" && location.pathname !== "/SignUp" && <Header />}
+            {location.pathname !== LINKS.SIGNIN && location.pathname !== LINKS.SIGNUP && <Header />}
             <main>
               <Outlet />
             </main>
-            {location.pathname !== "/SignIn" && location.pathname !== "/SignUp" && <Footer />}
+            {location.pathname !== LINKS.SIGNIN && location.pathname !== LINKS.SIGNUP && <Footer />}
           </div>
         </UserContext>
       </LocalizationProvider>

@@ -1,16 +1,40 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { ICONS } from "@/constants";
 
+import { userContext } from "@/context";
+
+import { authService } from "@/services";
+
 import Rectangle1 from "@/assets/images/Rectangle1.png";
 import Rectangle from "@/assets/images/Rectangle.png";
+
+import { LINKS } from "@/config/pages-url.config";
+
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import "./Header.scss";
 
 export const Header: React.FC = () => {
   const [menuActive, setMenuActive] = useState<boolean>(false);
   const [menuItemActive, setMenuItemActive] = useState<number>(0);
+  const queryClient = useQueryClient();
+
+  const user = useContext(userContext);
+
+  const { mutate } = useMutation({
+    mutationFn: () => authService.logout(),
+    onSuccess() {
+      queryClient.refetchQueries({
+        queryKey: ["user"],
+        type: "active",
+        exact: true,
+      });
+      toast.success("You have successfully logged out");
+    },
+  });
 
   const menuOpen = () => {
     setMenuActive(prev => !prev);
@@ -20,7 +44,7 @@ export const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <Link to="/" className="header__logo">
+        <Link to={LINKS.HOME} className="header__logo">
           LOGO
         </Link>
         <nav className="header__nav">
@@ -49,7 +73,9 @@ export const Header: React.FC = () => {
             </div>
           </div>
           <div tabIndex={1} className="header__item">
-            <Link to="/About" className="header__text">About us</Link>
+            <Link to={LINKS.ABOUT} className="header__text">
+              About us
+            </Link>
           </div>
           <div tabIndex={2} className="header__item" data-dropdown>
             <div className="header__text" data-dropdown-button>
@@ -99,7 +125,47 @@ export const Header: React.FC = () => {
               </ul>
             </div>
           </div>
-          <Link to={"/SignIn"}>{ICONS.account({ className: "svg-account" })}</Link>
+          {user ? (
+            <div tabIndex={4} className="header__item" data-dropdown>
+              <div className="header__text" data-dropdown-button>
+                {ICONS.account({ className: "svg-account", "data-dropdown-button": true })}
+              </div>
+              <div className="dropdown-menu left-auto-right-0">
+                <ul className="dropdown-menu__list">
+                  <li className="dropdown-menu__item">
+                    {ICONS.accountManagement()}
+                    Account management
+                  </li>
+                  <li className="dropdown-menu__item">
+                    {ICONS.loyaltyProgramme()}
+                    Loyalty programme
+                  </li>
+                  <li className="dropdown-menu__item">
+                    {ICONS.discountsAndBonuses()}
+                    Discounts and bonuses
+                  </li>
+                  <li className="dropdown-menu__item">
+                    {ICONS.bookings()}
+                    Bookings
+                  </li>
+                  <li className="dropdown-menu__item">
+                    {ICONS.saved()}
+                    Saved
+                  </li>
+                  <li className="dropdown-menu__item">
+                    {ICONS.chat()}
+                    Chat
+                  </li>
+                  <li className="dropdown-menu__item" onClick={() => mutate()}>
+                    {ICONS.signOut()}
+                    Sign out
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ) : (
+            <Link to={LINKS.SIGNIN}>{ICONS.account({ className: "svg-account" })}</Link>
+          )}
         </nav>
         <button className="icon-menu" type="button" onClick={menuOpen}>
           {menuActive ? ICONS.menuClose() : ICONS.menuOpen({ className: "svg-open" })}
