@@ -49,6 +49,10 @@
     &:has(> svg) {
       padding-right: 0px;
     }
+
+    &.active {
+      @extend %poppinsBold18_21;
+    }
   }
 
   &__item {

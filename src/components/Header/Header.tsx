@@ -1,5 +1,6 @@
+import clsx from "clsx";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { ICONS } from "@/constants";
@@ -21,6 +22,7 @@ export const Header: React.FC = () => {
   const [menuActive, setMenuActive] = useState<boolean>(false);
   const [menuItemActive, setMenuItemActive] = useState<number>(0);
   const queryClient = useQueryClient();
+  const location = useLocation();
 
   const user = useContext(userContext);
 
@@ -73,7 +75,12 @@ export const Header: React.FC = () => {
             </div>
           </div>
           <div tabIndex={1} className="header__item">
-            <Link to={LINKS.ABOUT} className="header__text">
+            <Link
+              to={LINKS.ABOUT}
+              className={clsx("header__text", {
+                ["active"]: location.pathname === LINKS.ABOUT,
+              })}
+            >
               About us
             </Link>
           </div>
