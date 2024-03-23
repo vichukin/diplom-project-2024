@@ -68,11 +68,26 @@
         position: sticky;
         top: 0; 
         background: white; 
-        z-index: 10; 
+        z-index: 2; 
     }
+
+    &__menu-mob{
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0; 
+        background: white; 
+        z-index: 2; 
+    }
+
+    $sticky-header-height: 60px;
 
     &__links{
         min-height: 148px;
+        background-color: #717171;
+    }
+
+    &__links-mob{
+        min-height: 46px;
         background-color: #717171;
     }
 
@@ -80,7 +95,16 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        line-height: 1.6;
+        gap: 20px;
+    }
+
+    &__links-li-mob{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding-bottom: 20px;
     }
 
     &__text-li{
@@ -89,19 +113,22 @@
 
         &:hover {
             color: #fff;
+            border-bottom: 1px solid black;
         }
     }
 
-    &__text-about-big{
-        display: none;
-    }
+    &__text-container {
+        @extend %poppinsMedium25;
+        color: #fff;
 
-    &__text-about-mob{
-        display: none;
-    }
-
-    &__text-li:hover{
-        border-bottom: 1px solid black;
+        &:hover {
+            color: #fff;
+        }
+        
+        display: flex;
+        align-items: center; /* Vertically center the contents */
+        justify-content: center; /* Horizontally center the contents, if needed */
+        padding: 20px 0;
     }
 
     &__title{
@@ -145,16 +172,16 @@
     }
 
     @media (min-width: 1161px) {
+        &__menu-mob{
+            display: none;
+        }
+
         &__links {
             padding: 54px 60px;
         }
 
         &__title{
             padding: 54px 60px;
-        }
-    
-        &__text-about-big{
-            display: block;
         }
     
         &__text-about-mob{
@@ -171,16 +198,16 @@
     }
 
     @media (max-width: 1160px) {
+        &__menu{
+            display: none;
+        }
+
         &__links {
             padding: 20px;
         }
 
         &__title{
             padding: 34px 40px;
-        }
-    
-        &__text-about-big{
-            display: none;
         }
     
         &__text-about-mob{

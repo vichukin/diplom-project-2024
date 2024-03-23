@@ -1,12 +1,32 @@
-import React from "react"
+import React, { useState } from "react"
 import "./About.scss"
 
 import Rectangle2 from "@/assets/images/Rectangle2.png";
 import { MdArrowForward } from 'react-icons/md';
 import { teamMembers } from "./constants";
 import { cardsData } from "./constants";
+import { menuItems } from "./constants";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 export const About: React.FC = () => {
+    const [active, setActive] = useState(false);
+    const [selectedItem, setSelectedItem] = useState('About the company');
+
+    const handleAccordionToggle = () => {
+        setActive(prev => !prev);
+    };
+
+    const handleItemClick = (name: string, id: string) => {
+        setSelectedItem(name);
+        setActive(false); // Close the accordion
+
+        // Scroll to the div with the specified id
+        const element = document.getElementById(id);
+        if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+    
     return (
         <div className="about">
             <div className="about__container" style={{ paddingInline: "0px" }}>
@@ -23,9 +43,8 @@ export const About: React.FC = () => {
                 <div className="about__container" style={{ paddingInline: "0px" }}>
                     <section className="about__links">
                         <nav>
-                            <ul className="about__links-li">
-                                <li className="about__text-about-big"><a href="#about-the-company" className="about__text-li">About the company</a></li>
-                                <li className="about__text-about-mob"><a href="#about-the-company-mob" className="about__text-li">About the company</a></li>
+                            <ul className="about__links-li active">
+                                <li><a href="#about-the-company" className="about__text-li">About the company</a></li>
                                 <li><a href="#our-team" className="about__text-li">Our team</a></li>
                                 <li><a href="#achievements-and-awards" className="about__text-li">Achievements and awards</a></li>
                                 <li><a href="#charity-and-social-projects" className="about__text-li">Charity and social projects</a></li>
@@ -33,6 +52,31 @@ export const About: React.FC = () => {
                             </ul>
                         </nav>
                     </section>
+                </div>
+            </div>
+
+            <div className="about__menu-mob">
+                <div className="about__container" style={{ paddingInline: "0px" }}>
+                <section className="about__links-mob">
+                    <div className="about__text-container" onClick={handleAccordionToggle}>
+                        {selectedItem} {active ? <IoIosArrowDown color="black"/> : <IoIosArrowUp color="black"/>}
+                    </div>
+                    {active && (
+                        <nav>
+                            <ul className="about__links-li-mob">
+                                {menuItems.map(item => (
+                                selectedItem !== item.name && (
+                                    <li key={item.id}>
+                                    <a href={`#${item.id}`} className="about__text-li" onClick={() => handleItemClick(item.name, item.id)}>
+                                        {item.name}
+                                    </a>
+                                    </li>
+                                )
+                                ))}
+                            </ul>
+                        </nav>
+                    )}
+                </section>
                 </div>
             </div>
 
@@ -304,4 +348,4 @@ export const About: React.FC = () => {
             </div>
         </div> 
     );
-  };
+  }
