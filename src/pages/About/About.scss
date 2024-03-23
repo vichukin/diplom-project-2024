@@ -117,8 +117,18 @@
         }
     }
 
+    &__text-li-mob{
+        @extend %poppinsBold18_18;
+        color: #fff;
+
+        &:hover {
+            color: #fff;
+            border-bottom: 1px solid black;
+        }
+    }
+
     &__text-container {
-        @extend %poppinsMedium25;
+        @extend %poppinsBold18_18;
         color: #fff;
 
         &:hover {
@@ -129,7 +139,12 @@
         align-items: center; /* Vertically center the contents */
         justify-content: center; /* Horizontally center the contents, if needed */
         padding: 20px 0;
+
+        .icon-spacing {
+            margin-left: 8px; /* Adjust the value as needed */
+        }
     }
+
 
     &__title{
         text-align: center;
