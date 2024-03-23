@@ -13,7 +13,7 @@ export const About: React.FC = () => {
     const [selectedItem, setSelectedItem] = useState('About the company');
 
     const handleAccordionToggle = () => {
-        setActive(!active);
+        setActive(prev => !prev);
     };
 
     const handleItemClick = (name: string, id: string) => {
