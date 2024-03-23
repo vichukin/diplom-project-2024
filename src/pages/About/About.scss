@@ -117,18 +117,6 @@
         }
     }
 
-    // &__text-about-big{
-    //     display: none;
-    // }
-
-    // &__text-about-mob{
-    //     display: none;
-    // }
-
-    // &__text-li:hover{
-    //     border-bottom: 1px solid black;
-    // }
-
     &__text-container {
         @extend %poppinsMedium25;
         color: #fff;
@@ -196,10 +184,6 @@
             padding: 54px 60px;
         }
     
-        // &__text-about-big{
-        //     display: block;
-        // }
-    
         &__text-about-mob{
             display: none;
         }
@@ -225,10 +209,6 @@
         &__title{
             padding: 34px 40px;
         }
-    
-        // &__text-about-big{
-        //     display: none;
-        // }
     
         &__text-about-mob{
             display: block;
