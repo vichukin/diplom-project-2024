@@ -59,7 +59,9 @@ export const About: React.FC = () => {
                 <div className="about__container" style={{ paddingInline: "0px" }}>
                 <section className="about__links-mob">
                     <div className="about__text-container" onClick={handleAccordionToggle}>
-                        {selectedItem} {active ? <IoIosArrowDown color="black"/> : <IoIosArrowUp color="black"/>}
+                        {selectedItem} 
+                        {/* {active ? <IoIosArrowDown/> : <IoIosArrowUp/>} */}
+                        <span className="icon-spacing">{active ? <IoIosArrowDown /> : <IoIosArrowUp />}</span>
                     </div>
                     {active && (
                         <nav>
@@ -67,7 +69,7 @@ export const About: React.FC = () => {
                                 {menuItems.map(item => (
                                 selectedItem !== item.name && (
                                     <li key={item.id}>
-                                    <a href={`#${item.id}`} className="about__text-li" onClick={() => handleItemClick(item.name, item.id)}>
+                                    <a href={`#${item.id}`} className="about__text-li-mob" onClick={() => handleItemClick(item.name, item.id)}>
                                         {item.name}
                                     </a>
                                     </li>
