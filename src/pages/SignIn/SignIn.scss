@@ -2,8 +2,8 @@
 
 .login {
   height: 100vh;
-
   display: flex;
+  position: relative;
 
   &__img-half {
     width: 50%;
@@ -46,7 +46,6 @@
   }
 
   &__text-half {
-    position: relative;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -54,7 +53,7 @@
     max-width: 536px;
     margin: 0 auto;
     padding: 20px;
-
+    padding-top: 60px;
     & button {
       margin-top: clamp(25px, 3vw, 50px);
       margin-bottom: clamp(25px, 3vw, 35px);
