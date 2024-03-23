@@ -1,9 +1,8 @@
 import axios, { type CreateAxiosDefaults } from "axios";
-
-import { errorCatch } from "./error";
+import { toast } from "react-toastify";
 
 import { authService } from "../services/auth.service";
-import { getAccessToken, removeFromStorage } from "../services/auth.token.service";
+import { getAccessToken } from "../services/auth.token.service";
 
 const options: CreateAxiosDefaults = {
   baseURL: "https://diplomproject2024myapi.azure-api.net/api",
@@ -16,9 +15,22 @@ export const axiosClassic = axios.create(options);
 
 export const axiosWithAuth = axios.create(options);
 
-axiosWithAuth.interceptors.request.use(config => {
-  const accessToken = getAccessToken();
+axiosClassic.interceptors.response.use(
+  config => config,
+  async error => {
+    toast.error(error.response.data.error);
+    toast.error(error.response.data.error.error);
 
+    throw error;
+  },
+);
+
+axiosWithAuth.interceptors.request.use(config => {
+  let accessToken = getAccessToken();
+  if (!accessToken) {
+    authService.getNewTokens();
+    accessToken = getAccessToken();
+  }
   if (config?.headers && accessToken) config.headers.Authorization = `Bearer ${accessToken}`;
 
   return config;
@@ -27,23 +39,6 @@ axiosWithAuth.interceptors.request.use(config => {
 axiosWithAuth.interceptors.response.use(
   config => config,
   async error => {
-    const originalRequest = error.config;
-
-    if (
-      (error?.response?.status === 401 ||
-        errorCatch(error) === "jwt expired" ||
-        errorCatch(error) === "jwt must be provided") &&
-      error.config &&
-      !error.config._isRetry
-    ) {
-      originalRequest._isRetry = true;
-      try {
-        await authService.getNewTokens();
-        return axiosWithAuth.request(originalRequest);
-      } catch (error) {
-        if (errorCatch(error) === "jwt expired") removeFromStorage();
-      }
-      throw error;
-    }
+    throw error;
   },
 );

@@ -1,4 +1,3 @@
-// @ts-ignore
 import path from "node:path";
 import { defineConfig } from "vite";
 
@@ -18,6 +17,8 @@ export default defineConfig({
       "@/services": "/src/utils/services/index.ts",
       "@/pages": "/src/pages/index.ts",
       "@/assets": path.resolve(__dirname, "./src/assets"),
+      "@/config": path.resolve(__dirname, "./src/utils/config"),
+      "@/HOC": path.resolve(__dirname, "./src/utils/HOC"),
     },
   },
 });

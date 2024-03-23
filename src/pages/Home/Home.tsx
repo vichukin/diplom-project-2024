@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -11,10 +11,10 @@ import { Card } from "@/components";
 
 import { ICONS } from "@/constants";
 
-import { userContext } from "@/context";
-
 import Rectangle2 from "@/assets/images/Rectangle2.png";
 import Rectangle4 from "@/assets/images/Rectangle4.png";
+
+import { LINKS } from "@/config/pages-url.config";
 
 import "./Home.scss";
 import { SearchForm } from "./components/SearchForm/SearchForm";
@@ -23,10 +23,6 @@ import { breakPoints } from "./constants";
 
 export const Home: React.FC = () => {
   const [activeModal, setActiveModal] = useState(false);
-
-  const user = useContext(userContext);
-
-  console.log(user);
 
   return (
     <div className="home">
@@ -134,10 +130,10 @@ export const Home: React.FC = () => {
             </p>
             <div className="home__actions">
               <button className="button button--login">
-                <Link to={"/SignIn"}>Login</Link>
+                <Link to={LINKS.SIGNIN}>Login</Link>
               </button>
               <button className="button button--signup">
-                <Link to={"/SignUp"}>Sign up</Link>
+                <Link to={LINKS.SIGNUP}>Sign up</Link>
               </button>
             </div>
           </div>

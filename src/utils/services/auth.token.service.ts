@@ -7,6 +7,11 @@ export const getAccessToken = () => {
   return accessToken || null;
 };
 
+export const getRefreshToken = () => {
+  const refreshToken = Cookies.get(EnumTokens.REFRESH_TOKEN);
+  return refreshToken || null;
+};
+
 export const saveTokensStorage = (accessToken: string, refreshToken: string) => {
   Cookies.set(EnumTokens.ACCESS_TOKEN, accessToken, {
     sameSite: "strict",

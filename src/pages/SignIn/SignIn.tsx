@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { SignUpFormType } from "src/utils/validators/sign-up-form-validator";
 
 import { SignInFormScheme, SignInFormType } from "@/validators";
@@ -10,16 +9,24 @@ import { ButtonConfirm, ConfirmEmail } from "@/components";
 
 import { ICONS } from "@/constants";
 
+import { authService } from "@/services";
+
 import Rectangle6 from "@/assets/images/Rectangle6.png";
+
+import { LINKS } from "@/config/pages-url.config";
+
+import { withAuth } from "@/HOC/withAuth";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TextField } from "@mui/material";
+import { useMutation } from "@tanstack/react-query";
 
 import "./SignIn.scss";
 
-export const SignIn: React.FC = () => {
+export const SignIn: React.FC = withAuth(() => {
   const navigate = useNavigate();
   const [confirmEmailActive, setConfirmEmailActive] = useState<boolean>(false);
+  const [tokens, setTokens] = useState<IAuthResponse | null>(null);
 
   const {
     register,
@@ -27,28 +34,32 @@ export const SignIn: React.FC = () => {
     formState: { errors },
   } = useForm<SignUpFormType>({ resolver: zodResolver(SignInFormScheme), mode: "onSubmit" });
 
-  const SignInUser: SubmitHandler<SignInFormType> = async data => {
-    console.log(data);
-    try {
+  const { mutate } = useMutation({
+    mutationFn: (data: IAuthLogin) =>
+      authService.login({
+        ...data,
+      }),
+    onSuccess({ data }) {
+      setTokens(data);
       setConfirmEmailActive(true);
-    } catch (error) {
-      toast.error("Something went wrong!");
-      console.error(error);
-    }
+    },
+  });
+  const SignInUser: SubmitHandler<SignInFormType> = async data => {
+    mutate(data);
   };
 
   return (
     <section className="login">
       <div className="login__img-half">
         <img src={Rectangle6} alt="Main Photo" className="login__img" />
-        <Link to={"/SignUp"} className="login__img-link">
+        <Link to={LINKS.SIGNUP} className="login__img-link">
           Sign up{ICONS.cardArrow()}
         </Link>
       </div>
       {!confirmEmailActive ? (
         <form onSubmit={handleSubmit(SignInUser)} className="login__text-half">
-          {ICONS.menuClose({ onClick: () => navigate("/") })}
-          <Link to={"/SignUp"} className="login__img-link login__img-link-phone">
+          {ICONS.menuClose({ onClick: () => navigate(LINKS.HOME) })}
+          <Link to={LINKS.SIGNUP} className="login__img-link login__img-link-phone">
             Sign up{ICONS.cardArrow()}
           </Link>
           <div className="login__title">Sign in</div>
@@ -89,8 +100,8 @@ export const SignIn: React.FC = () => {
           </div>
         </form>
       ) : (
-        <ConfirmEmail />
+        <ConfirmEmail tokens={tokens} />
       )}
     </section>
   );
-};
+});

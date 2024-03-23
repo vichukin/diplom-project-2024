@@ -1,8 +1,11 @@
 import { useState } from "react";
-import "./Footer.scss";
-import { Link } from "react-router-dom";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { MdArrowUpward } from 'react-icons/md';
+import { MdArrowUpward } from "react-icons/md";
+import { Link } from "react-router-dom";
+
+import { LINKS } from "@/config/pages-url.config";
+
+import "./Footer.scss";
 
 export const Footer: React.FC = () => {
   // State to manage which accordion item is open, -1 means all are closed
@@ -22,11 +25,11 @@ export const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
-  return(
+  return (
     <footer className="footer__main">
       <div className="footer__background-one">
         <div className="home__container" style={{ paddingInline: "0px" }}>
@@ -34,7 +37,9 @@ export const Footer: React.FC = () => {
             <p>Sign up to receive the most interesting and favourable rental offers every week!</p>
             <form className="footer__newsletter-input-group">
               <input type="email" placeholder="Enter your Email" />
-              <button type="submit"><span>Subscribe</span></button>
+              <button type="submit">
+                <span>Subscribe</span>
+              </button>
             </form>
           </div>
         </div>
@@ -51,7 +56,7 @@ export const Footer: React.FC = () => {
             <div className="footer__content-part-one">
               <div className="footer__content-section-one">
                 <div className="footer__logo-div">
-                  <Link to="/" className="footer__logo">
+                  <Link to={LINKS.HOME} className="footer__logo">
                     Logo
                   </Link>
                 </div>
@@ -67,37 +72,69 @@ export const Footer: React.FC = () => {
                 <div className="footer__section-categories-section">
                   <p className="footer__categories">Categories</p>
                   <ul>
-                    <li className="footer__categories-li"><a href="#">Houses</a></li>
-                    <li className="footer__categories-li"><a href="#">Flats</a></li>
-                    <li className="footer__categories-li"><a href="#">Hotels</a></li>
-                    <li className="footer__categories-li"><a href="#">Hostels</a></li>
+                    <li className="footer__categories-li">
+                      <a href="#">Houses</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">Flats</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">Hotels</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">Hostels</a>
+                    </li>
                   </ul>
                 </div>
                 <div className="footer__section-support-section">
                   <p className="footer__categories">Support</p>
                   <ul>
-                    <li className="footer__categories-li"><a href="#">FAQ`s</a></li>
-                    <li className="footer__categories-li"><a href="#">Contact Us</a></li>
-                    <li className="footer__categories-li"><a href="#">Return Policy</a></li>
-                    <li className="footer__categories-li"><a href="#">My Account</a></li>
+                    <li className="footer__categories-li">
+                      <a href="#">FAQ`s</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">Contact Us</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">Return Policy</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">My Account</a>
+                    </li>
                   </ul>
                 </div>
                 <div className="footer__section-social-section">
                   <p className="footer__categories">Social</p>
                   <ul>
-                    <li className="footer__categories-li"><a href="#">Facebook</a></li>
-                    <li className="footer__categories-li"><a href="#">Instagram</a></li>
-                    <li className="footer__categories-li"><a href="#">Pinterest</a></li>
-                    <li className="footer__categories-li"><a href="#">YouTube</a></li>
+                    <li className="footer__categories-li">
+                      <a href="#">Facebook</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">Instagram</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">Pinterest</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">YouTube</a>
+                    </li>
                   </ul>
                 </div>
                 <div className="footer__section-legal-section">
                   <p className="footer__categories">Legal</p>
                   <ul>
-                    <li className="footer__categories-li"><a href="#">Privacy Policy</a></li>
-                    <li className="footer__categories-li"><a href="#">Terms of Use</a></li>
-                    <li className="footer__categories-li"><a href="#">Frequently Asked Questions</a></li>
-                    <li className="footer__categories-li"><a href="#">Cancellation Policy</a></li>
+                    <li className="footer__categories-li">
+                      <a href="#">Privacy Policy</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">Terms of Use</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">Frequently Asked Questions</a>
+                    </li>
+                    <li className="footer__categories-li">
+                      <a href="#">Cancellation Policy</a>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -112,15 +149,23 @@ export const Footer: React.FC = () => {
                 {openAccordion === 1 && (
                   <div className="footer__accordion-content">
                     <ul>
-                      <li className="footer__categories-li"><a href="#">Houses</a></li>
-                      <li className="footer__categories-li"><a href="#">Flats</a></li>
-                      <li className="footer__categories-li"><a href="#">Hotels</a></li>
-                      <li className="footer__categories-li"><a href="#">Hostels</a></li>
+                      <li className="footer__categories-li">
+                        <a href="#">Houses</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">Flats</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">Hotels</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">Hostels</a>
+                      </li>
                     </ul>
                   </div>
                 )}
               </div>
-              
+
               <div className="footer__accordion-item">
                 <div className="footer__accordion-title" onClick={() => toggleAccordion(2)}>
                   <p className="footer__categories">Support</p>
@@ -129,10 +174,18 @@ export const Footer: React.FC = () => {
                 {openAccordion === 2 && (
                   <div className="footer__accordion-content">
                     <ul>
-                      <li className="footer__categories-li"><a href="#">FAQ`s</a></li>
-                      <li className="footer__categories-li"><a href="#">Contact Us</a></li>
-                      <li className="footer__categories-li"><a href="#">Return Policy</a></li>
-                      <li className="footer__categories-li"><a href="#">My Account</a></li>
+                      <li className="footer__categories-li">
+                        <a href="#">FAQ`s</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">Contact Us</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">Return Policy</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">My Account</a>
+                      </li>
                     </ul>
                   </div>
                 )}
@@ -146,10 +199,18 @@ export const Footer: React.FC = () => {
                 {openAccordion === 3 && (
                   <div className="footer__accordion-content">
                     <ul>
-                      <li className="footer__categories-li"><a href="#">Facebook</a></li>
-                      <li className="footer__categories-li"><a href="#">Instagram</a></li>
-                      <li className="footer__categories-li"><a href="#">Pinterest</a></li>
-                      <li className="footer__categories-li"><a href="#">YouTube</a></li>
+                      <li className="footer__categories-li">
+                        <a href="#">Facebook</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">Instagram</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">Pinterest</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">YouTube</a>
+                      </li>
                     </ul>
                   </div>
                 )}
@@ -163,32 +224,46 @@ export const Footer: React.FC = () => {
                 {openAccordion === 4 && (
                   <div className="footer__accordion-content">
                     <ul>
-                      <li className="footer__categories-li"><a href="#">Privacy Policy</a></li>
-                      <li className="footer__categories-li"><a href="#">Terms of Use</a></li>
-                      <li className="footer__categories-li"><a href="#">Frequently Asked Questions</a></li>
-                      <li className="footer__categories-li"><a href="#">Cancellation Policy</a></li>
+                      <li className="footer__categories-li">
+                        <a href="#">Privacy Policy</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">Terms of Use</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">Frequently Asked Questions</a>
+                      </li>
+                      <li className="footer__categories-li">
+                        <a href="#">Cancellation Policy</a>
+                      </li>
                     </ul>
                   </div>
                 )}
               </div>
-            </div> 
+            </div>
 
             <div className="footer__newsletter_mobil">
               <p className="footer__categories">Service:</p>
-              <p id="tel" className="footer__categories">0 800 300 501</p>
+              <p id="tel" className="footer__categories">
+                0 800 300 501
+              </p>
             </div>
 
             <div className="footer__newsletter-info-mobil">
               <p className="footer__text-info">Email</p>
-              <p id="email" className="footer__text-info">info@homey.com</p>   
+              <p id="email" className="footer__text-info">
+                info@homey.com
+              </p>
             </div>
 
             <div className="footer__content_part_two_main">
               <div className="footer__content-part-two">
-                <p id="page" className="footer__text-info">&copy;2024 Homey.com</p>
+                <p id="page" className="footer__text-info">
+                  &copy;2024 Homey.com
+                </p>
               </div>
             </div>
-          </div>  
+          </div>
         </div>
       </div>
     </footer>

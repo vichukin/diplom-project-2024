@@ -7,16 +7,27 @@ import { ConfirmEmailFormScheme, ConfirmEmailFormType } from "@/validators";
 
 import { ICONS } from "@/constants";
 
+import { saveTokensStorage } from "@/services";
+
+import { LINKS } from "@/config/pages-url.config";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TextField } from "@mui/material";
+import { useQueryClient } from "@tanstack/react-query";
 
 import "./ConfirmEmail.scss";
 
 import { ButtonConfirm } from "../UI/ButtonConfirm/ButtonConfirm";
 
-export const ConfirmEmail: React.FC = () => {
+type ConfirmEmailType = {
+  tokens: IAuthResponse | null;
+};
+
+export const ConfirmEmail: React.FC<ConfirmEmailType> = ({ tokens }: ConfirmEmailType) => {
   const navigate = useNavigate();
   const textInputRefs = useRef<Array<HTMLInputElement | null>>([]);
+  const queryClient = useQueryClient();
+
   const {
     register,
     handleSubmit,
@@ -33,18 +44,26 @@ export const ConfirmEmail: React.FC = () => {
   };
 
   const ConfirmEmailFunc: SubmitHandler<ConfirmEmailFormType> = async data => {
-    console.log(data);
-    try {
-    } catch (error) {
-      toast.error("Something went wrong!");
-      console.error(error);
+    const confirmPassword = Object.values(data).join("");
+    if (confirmPassword === "123456" && tokens) {
+      saveTokensStorage(tokens.accessToken, tokens.refreshToken);
+
+      queryClient.refetchQueries({
+        queryKey: ["user"],
+        type: "active",
+        exact: true,
+      });
+      toast.success("Email has confirmed!");
+      navigate(LINKS.HOME);
+    } else {
+      toast.error("Wrong confirm code!");
     }
   };
 
   return (
     <form onSubmit={handleSubmit(ConfirmEmailFunc)} className="login__text-half">
-      {ICONS.menuClose({ onClick: () => navigate("/") })}
-      <Link to={"/SignUp"} className="login__img-link login__img-link-phone">
+      {ICONS.menuClose({ onClick: () => navigate(LINKS.HOME) })}
+      <Link to={LINKS.SIGNUP} className="login__img-link login__img-link-phone">
         Sign up{ICONS.cardArrow()}
       </Link>
       <div className="login__subtitle">Confirm Email</div>

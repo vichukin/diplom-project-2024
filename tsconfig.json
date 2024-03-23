@@ -29,7 +29,9 @@
       "@/hooks": ["./src/utils/hooks"],
       "@/services": ["./src/utils/services"],
       "@/pages": ["./src/pages"],
-      "@/assets/*": ["./src/assets/*"]
+      "@/assets/*": ["./src/assets/*"],
+      "@/config/*": ["./src/utils/config/*"],
+      "@/HOC/*": ["./src/utils/HOC/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],
