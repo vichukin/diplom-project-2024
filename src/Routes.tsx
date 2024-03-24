@@ -2,7 +2,7 @@ import { BrowserRouter, Routes as ReactRoutes, Route } from "react-router-dom";
 
 import { Layout } from "@/components";
 
-import { Home, Profile, SignIn, SignUp,  About } from "@/pages";
+import { Home, Profile, SignIn, SignUp,  About, Discounts, Bookings, Saved } from "@/pages";
 
 export function Routes() {
   return (
@@ -14,6 +14,9 @@ export function Routes() {
           <Route path="About" element={<About />} />
           <Route path="SignIn" element={<SignIn />} />
           <Route path="SignUp" element={<SignUp />} />
+          <Route path="Discounts" element={<Discounts />} />
+          <Route path="Bookings" element={<Bookings />} />
+          <Route path="Saved" element={<Saved />} />
         </Route>
       </ReactRoutes>
     </BrowserRouter>

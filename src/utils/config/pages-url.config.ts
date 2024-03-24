@@ -3,4 +3,7 @@ export const LINKS = {
   SIGNIN: "/SignIn",
   SIGNUP: "/SignUp",
   ABOUT: "/About",
+  DISCOUNTS: "/Discounts",
+  BOOKINGS: "/Bookings",
+  SAVED: "/Saved"
 };

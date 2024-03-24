@@ -147,18 +147,18 @@ export const Header: React.FC = () => {
                     {ICONS.loyaltyProgramme()}
                     Loyalty programme
                   </li>
-                  <li className="dropdown-menu__item">
+                  <Link to={LINKS.DISCOUNTS} className="dropdown-menu__item">
                     {ICONS.discountsAndBonuses()}
                     Discounts and bonuses
-                  </li>
-                  <li className="dropdown-menu__item">
+                  </Link>
+                  <Link to={LINKS.BOOKINGS} className="dropdown-menu__item">
                     {ICONS.bookings()}
                     Bookings
-                  </li>
-                  <li className="dropdown-menu__item">
+                  </Link>
+                  <Link to={LINKS.SAVED} className="dropdown-menu__item">
                     {ICONS.saved()}
                     Saved
-                  </li>
+                  </Link>
                   <li className="dropdown-menu__item">
                     {ICONS.chat()}
                     Chat
