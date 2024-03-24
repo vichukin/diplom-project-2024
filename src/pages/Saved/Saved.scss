@@ -1,0 +1,43 @@
+@import "../../assets/styles/variables.scss";
+
+.saved{
+    &__loyalty-programme-discounts-section{
+        height: clamp(250px, 60vw, 300px);
+        background-image: url("../../assets/images/Rectangle7.png");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+    }
+
+    &__text{
+        @extend %poppinsMedium18_25;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+    }
+
+    &__icon-container{
+        margin: 45px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__text-container{
+        display: flex;
+        justify-content: center;
+
+        .text-info{
+            width: 708px;
+            text-align: center;
+        }
+    }
+
+    &__text-info{
+        @extend %poppinsBold18_18;
+        line-height: 1.6;
+    }
+}
